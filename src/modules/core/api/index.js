@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL_BASE = 'https://api.digitalocean.com';
+const URL_BASE = 'https://api.digitalocean.com/';
 const API = axios.create({
   baseURL: URL_BASE
 });

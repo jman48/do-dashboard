@@ -6,7 +6,7 @@ import MaterialInitials from 'react-native-material-initials/native';
 import { LINKS } from '../constants';
 import Row from './row';
 
-const Drawer = ({ navigate, logout }) => (
+const Drawer = ({ navigate, logout, email }) => (
   <SafeAreaView
     style={{ flex: 1, backgroundColor: '#136EFB' }}
     forceInset={{ top: 'always', horizontal: 'never' }}
@@ -20,7 +20,7 @@ const Drawer = ({ navigate, logout }) => (
       }}
     >
       <MaterialInitials
-        text="j.armstrong484@gmail.com"
+        text={email}
         size={120}
         backgroundColor="white"
         color="#136EFB"

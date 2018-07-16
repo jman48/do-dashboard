@@ -3,6 +3,10 @@ import NavigationService from '../../core/routes/navigationService';
 import Drawer from '../components/drawer';
 import { logout } from '../../auth/utils';
 
+const mapStateToProps = ({ auth: { email } }) => ({
+  email
+});
+
 const mapDispatchToProps = () => ({
   navigate: location => {
     NavigationService.toggleDrawer();
@@ -16,6 +20,6 @@ const mapDispatchToProps = () => ({
 });
 
 export default connect(
-  null,
+  mapStateToProps,
   mapDispatchToProps
 )(Drawer);
