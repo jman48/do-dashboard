@@ -1,0 +1,1 @@
+export const DROPLETS_PER_PAGE = 100;
