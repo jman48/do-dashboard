@@ -11,16 +11,10 @@ class Auth extends Component {
 
   constructor() {
     super();
+    console.log('Auth page');
     this.state = {
       token: ''
     };
-  }
-
-  async componentWillMount() {
-    const { checkAuth, goToApp } = this.props;
-    const auth = await checkAuth();
-
-    if (auth) goToApp();
   }
 
   componentDidMount() {

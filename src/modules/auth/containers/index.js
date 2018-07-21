@@ -1,17 +1,13 @@
 import { connect } from 'react-redux';
 import Auth from '../components';
-import { saveToken } from '../actions';
-import { checkAuth } from '../api';
 import navigationService from '../../core/routes/navigationService';
 
-const mapStateToProps = ({ auth: { loading } }) => ({
-  loading,
-  checkAuth,
-  goToApp: () => navigationService.navigate('Private')
+const mapStateToProps = ({ auth: { token, loading } }) => ({
+  loading
 });
 
-const mapDispatchToProps = dispatch => ({
-  saveToken: token => dispatch(saveToken(token))
+const mapDispatchToProps = (dispatch, props) => ({
+  goToApp: () => navigationService.navigate('Private')
 });
 
 export default connect(

@@ -16,7 +16,7 @@ function* loadDroplets() {
     const droplets = yield call(getDroplets);
     yield put(loadedDroplets(droplets));
   } catch (error) {
-    // console.log('ERROR: ', error);
+    console.log('ERROR: ');
     crashlytics.recordError(1000, error.message);
   }
 }
@@ -28,7 +28,7 @@ function* loadDroplet(action) {
     const droplet = yield call(getDroplet, dropletID);
     yield put(loadedDroplet(droplet));
   } catch (error) {
-    // console.log('ERROR: ', error);
+    console.log('ERROR: ');
     crashlytics.recordError(1001, error.message);
   }
 }

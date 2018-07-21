@@ -1,4 +1,5 @@
 import { takeEvery, call, put } from 'redux-saga/effects';
+import { REHYDRATE } from 'redux-persist';
 import { getAccountDetails, storeToken } from '../api';
 import { AUTH_SAVE, AUTH_SUCCESS, AUTH_FAILURE } from '../actions';
 import NavigationService from '../../core/routes/navigationService';
@@ -9,7 +10,6 @@ function* getAccountDetailsSaga(action) {
     const token = action.payload;
 
     const accountDetails = yield call(getAccountDetails, token);
-    console.log('Account Details are: ', accountDetails);
     setToken(token);
     yield put({
       type: AUTH_SUCCESS,
@@ -19,11 +19,17 @@ function* getAccountDetailsSaga(action) {
       }
     });
   } catch (error) {
+    console.log('Auth error: ');
     yield put({ type: AUTH_FAILURE });
   }
 }
 
+function rehydrate(action) {
+  console.log('Rehydrate action: ', action);
+}
+
 function changePage() {
+  console.log('Changing page');
   NavigationService.navigate('Private');
 }
 
@@ -33,4 +39,8 @@ export function* watchAuth() {
 
 export function* watchAuthSuccess() {
   yield takeEvery(AUTH_SUCCESS, changePage);
+}
+
+export function* watchRehydrate() {
+  yield takeEvery(REHYDRATE, rehydrate)
 }
