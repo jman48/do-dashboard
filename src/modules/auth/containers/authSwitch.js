@@ -1,8 +1,8 @@
-import { connect } from 'react-redux';
-import AuthSwitch from '../components/authSwitch';
-import { isAuthed } from '../utils';
+import { connect } from "react-redux";
+import AuthSwitch from "../components/authSwitch";
+import { isAuthed } from "../utils";
 
-const mapStateToProps = ({ auth, token }) => ({
+const mapStateToProps = ({ auth: { token } }) => ({
   isAuthenticated: isAuthed(token)
 });
 

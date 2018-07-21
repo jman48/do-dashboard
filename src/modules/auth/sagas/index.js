@@ -25,11 +25,12 @@ function* getAccountDetailsSaga(action) {
 }
 
 function rehydrate(action) {
-  console.log('Rehydrate action: ', action);
+  console.log('Hydrate is: ', action);
+  const { auth: { token }} = action.payload;
+  return setToken(token);
 }
 
 function changePage() {
-  console.log('Changing page');
   NavigationService.navigate('Private');
 }
 

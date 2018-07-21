@@ -6,7 +6,7 @@ const mapStateToProps = ({ auth: { token, loading } }) => ({
   loading
 });
 
-const mapDispatchToProps = (dispatch, props) => ({
+const mapDispatchToProps = dispatch => ({
   authenticate: token => dispatch(Actions.authenticate(token))
 });
 
