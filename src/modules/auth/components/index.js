@@ -22,7 +22,7 @@ class Auth extends Component {
   }
 
   render() {
-    const { saveToken, loading } = this.props;
+    const { authenticate } = this.props;
     const { token } = this.state;
 
     return (
@@ -42,7 +42,7 @@ class Auth extends Component {
 
             <Button
               block
-              onPress={() => saveToken(token)}
+              onPress={() => authenticate(token)}
               style={styles.submit}
             >
               <Text>Start</Text>

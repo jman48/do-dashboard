@@ -1,13 +1,13 @@
 import { connect } from 'react-redux';
+import * as Actions from '../actions';
 import Auth from '../components';
-import navigationService from '../../core/routes/navigationService';
 
 const mapStateToProps = ({ auth: { token, loading } }) => ({
   loading
 });
 
 const mapDispatchToProps = (dispatch, props) => ({
-  goToApp: () => navigationService.navigate('Private')
+  authenticate: token => dispatch(Actions.authenticate(token))
 });
 
 export default connect(
