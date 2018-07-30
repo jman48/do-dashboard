@@ -1,5 +1,5 @@
 import { combineReducers } from "redux";
-import { AUTH_SAVE, AUTH_SUCCESS } from "../actions";
+import { AUTH_FAILURE, AUTH_SAVE, AUTH_SUCCESS } from '../actions';
 
 const token = (state = {}, action) => {
   switch (action.type) {
@@ -30,8 +30,21 @@ const email = (state = '', action) => {
   }
 };
 
+const failure = (state = '', action) => {
+  switch (action.type) {
+    case AUTH_SUCCESS:
+    case AUTH_SAVE:
+      return '';
+    case AUTH_FAILURE:
+      return action.payload;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   token,
   loading,
-  email
+  email,
+  failure
 });

@@ -14,3 +14,8 @@ export async function getDroplet(dropletID) {
     response => response.data.droplet
   );
 }
+
+// Restart
+// Resize
+// Backups - Enable/ Disable
+// Power Off/ On

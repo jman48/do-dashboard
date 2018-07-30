@@ -9,4 +9,8 @@ export function setToken(token) {
   API.defaults.headers.common.Authorization = `Bearer ${token}`;
 }
 
+export function clearToken() {
+  API.defaults.headers.common.Authorization = '';
+}
+
 export default API;

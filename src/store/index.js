@@ -9,13 +9,14 @@ const sagaMiddleware = createSagaMiddleware();
 const persistConfig = {
   key: "root",
   storage,
-  whitelist: ["auth"]
+  whitelist: ["auth"],
+  blacklist: ['auth'],
 };
 const persistedReducer = persistReducer(persistConfig, reducers);
 
 export default () => {
   const store = createStore(persistedReducer, applyMiddleware(sagaMiddleware));
-  const persistor = persistStore(store, null, () => console.log('REHYDRATE IS DONE****************************'));
+  const persistor = persistStore(store, null);
   sagaMiddleware.run(sagasToRun);
   return { store, persistor };
 };

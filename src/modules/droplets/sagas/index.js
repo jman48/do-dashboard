@@ -8,6 +8,7 @@ import {
   loadedDroplet
 } from '../actions';
 import navigationService from '../../core/routes/navigationService';
+import { handleError } from '../../core/utils';
 
 const crashlytics = firebase.crashlytics();
 
@@ -16,8 +17,7 @@ function* loadDroplets() {
     const droplets = yield call(getDroplets);
     yield put(loadedDroplets(droplets));
   } catch (error) {
-    console.log('ERROR: ');
-    crashlytics.recordError(1000, error.message);
+    handleError(error);
   }
 }
 
@@ -28,8 +28,7 @@ function* loadDroplet(action) {
     const droplet = yield call(getDroplet, dropletID);
     yield put(loadedDroplet(droplet));
   } catch (error) {
-    console.log('ERROR: ');
-    crashlytics.recordError(1001, error.message);
+    handleError(error);
   }
 }
 
