@@ -6,6 +6,7 @@ import initStore from './store';
 import Root from "./modules/core/routes/index";
 import NavigationService from "./modules/core/routes/navigationService";
 import Loading from './modules/core/components/loading';
+import Modal from './modules/modal/containers';
 
 const { store, persistor } = initStore();
 
@@ -25,6 +26,8 @@ export default class App extends React.Component {
               NavigationService.setTopLevelNavigator(navigationRef);
             }}
           />
+
+          <Modal />
         </PersistGate>
       </Provider>
     );
