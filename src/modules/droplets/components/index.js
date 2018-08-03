@@ -3,14 +3,11 @@ import Droplet from '../containers/dropletSummary';
 import {
   Container,
   Content,
-  Form,
-  Item,
-  Input,
   View,
-  Button,
   Text
 } from 'native-base';
 import Loading from '../../core/components/loading';
+import Error from '../../core/components/error';
 
 class Droplets extends Component {
   static navigationOptions = {
@@ -19,13 +16,12 @@ class Droplets extends Component {
 
   constructor(props) {
     super();
-    console.log('Starting to load......');
     const { load } = props;
     load();
   }
 
   render() {
-    const { droplets, loading } = this.props;
+    const { droplets, loading, error, showDroplets } = this.props;
 
     return (
       <Container>
@@ -35,7 +31,8 @@ class Droplets extends Component {
           }}
         >
           <Loading state={loading} />
-          {!loading && (
+          <Error show={error} message="Error loading droplets. Please try again later" />
+          {showDroplets && (
             <View style={{ flex: 1, justifyContent: 'center' }}>
               {droplets.map(droplet => (
                 <Droplet key={droplet.id} droplet={droplet} />

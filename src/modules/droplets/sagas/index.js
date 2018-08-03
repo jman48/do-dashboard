@@ -1,5 +1,4 @@
 import { takeEvery, call, put } from "redux-saga/effects";
-import firebase from "react-native-firebase";
 import { getDroplets, getDroplet } from "../api";
 import {
   DROPLET_LOAD,
