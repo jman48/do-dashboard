@@ -1,10 +1,8 @@
-import firebase from "react-native-firebase";
 import { Alert } from "react-native";
-
-const crashlytics = firebase.crashlytics();
+import { Sentry } from 'react-native-sentry';
 
 export function handleError(error) {
-  crashlytics.recordError(1, error.message);
+  Sentry.captureException(error);
 }
 
 export function showError(title, message) {
