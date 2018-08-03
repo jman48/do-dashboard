@@ -5,6 +5,7 @@ import ListItem from './listItem';
 import { getDropletInfo } from '../utils';
 import Loading from '../../core/components/loading';
 import analytics from '../../core/utils/analytics';
+import Error from '../../core/components/error';
 
 class Droplet extends Component {
   static navigationOptions = {
@@ -16,7 +17,7 @@ class Droplet extends Component {
   }
 
   render() {
-    const { droplet, loading } = this.props;
+    const { droplet, loading, error, showDroplet } = this.props;
     const {
       name,
       memory,
@@ -27,13 +28,13 @@ class Droplet extends Component {
       tags,
       image: { distribution }
     } = getDropletInfo(droplet);
-    const { title, info } = styles;
-    console.log('Droplet is: ', droplet);
+    const { title } = styles;
 
     return (
       <Content>
         <Loading state={loading} />
-        {!loading && (
+        <Error show={error} message="Failed to load droplet. Please try again later" />
+        {showDroplet (
           <View>
             <List>
               <Text style={title}>{name}</Text>
@@ -106,9 +107,6 @@ const styles = {
     fontSize: 24,
     textAlign: 'center',
     margin: 15
-  },
-  info: {
-    color: '#999999'
   },
   status: {
     position: 'absolute',
