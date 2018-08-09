@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
-import { AUTH_FAILURE, AUTH_SAVE, AUTH_SUCCESS } from '../actions';
+import { AUTH_FAILURE, AUTH_LOGOUT, AUTH_SAVE, AUTH_SUCCESS } from "../actions";
 
 const token = (state = {}, action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
       return action.payload.token;
+    case AUTH_LOGOUT:
+      return {};
     default:
       return state;
   }
@@ -21,7 +23,7 @@ const loading = (state = false, action) => {
   }
 };
 
-const email = (state = '', action) => {
+const email = (state = "", action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
       return action.payload.account.email;
@@ -30,11 +32,11 @@ const email = (state = '', action) => {
   }
 };
 
-const failure = (state = '', action) => {
+const failure = (state = "", action) => {
   switch (action.type) {
     case AUTH_SUCCESS:
     case AUTH_SAVE:
-      return '';
+      return "";
     case AUTH_FAILURE:
       return action.payload;
     default:

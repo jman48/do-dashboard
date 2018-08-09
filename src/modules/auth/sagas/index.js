@@ -36,7 +36,7 @@ function* logout() {
 
 function rehydrate(action) {
   try {
-    const { auth: { token } } = action.payload;
+    const { token } = action.payload;
     return setToken(token);
   } catch (error) {
     handleError(error);

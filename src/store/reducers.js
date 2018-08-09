@@ -8,7 +8,8 @@ import modal from "../modules/modal/reducers";
 const authPersistConfig = {
   key: "auth",
   storage,
-  blacklist: ["failure"]
+  blacklist: ["failure"],
+  whitelist: ["email", "token"]
 };
 
 const rootReducer = combineReducers({
