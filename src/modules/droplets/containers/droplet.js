@@ -5,8 +5,7 @@ import Droplet from '../components/droplet';
 const mapStateToProps = ({ droplets: { droplet, dropletLoading, dropletLoadFail } }) => ({
   loading: dropletLoading,
   droplet,
-  error: !isEmpty(dropletLoadFail),
-  showDroplet: !dropletLoading && !isEmpty(dropletLoading)
+  error: !isEmpty(dropletLoadFail)
 });
 
 export default connect(mapStateToProps)(Droplet);

@@ -7,8 +7,9 @@ import {
   loadedDroplet,
   loadDropletsFail,
   loadDropletFail,
-  DROPLETS_LOAD_ALL_FAIL, DROPLET_LOAD_FAIL
-} from '../actions';
+  DROPLETS_LOAD_ALL_FAIL,
+  DROPLET_LOAD_FAIL
+} from "../actions";
 import navigationService from "../../core/routes/navigationService";
 import { handleError, showError } from "../../core/utils";
 
@@ -43,7 +44,7 @@ function* handleLoadDropletsFail(action) {
 }
 
 function* handleLoadDropletFail(action) {
-  showError('Failed to load droplet', action.payload);
+  showError("Failed to load droplet", action.payload);
 }
 
 export function* watchLoadDroplets() {

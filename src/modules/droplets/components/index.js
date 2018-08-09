@@ -1,17 +1,13 @@
-import React, { Component } from 'react';
-import Droplet from '../containers/dropletSummary';
-import {
-  Container,
-  Content,
-  View,
-  Text
-} from 'native-base';
-import Loading from '../../core/components/loading';
-import Error from '../../core/components/error';
+import React, { Component } from "react";
+import { FlatList } from "react-native";
+import Droplet from "../containers/dropletSummary";
+import { Container, Content, View, Text } from "native-base";
+import Loading from "../../core/components/loading";
+import Error from "../../core/components/error";
 
 class Droplets extends Component {
   static navigationOptions = {
-    title: 'Droplets'
+    title: "Droplets"
   };
 
   constructor(props) {
@@ -21,7 +17,8 @@ class Droplets extends Component {
   }
 
   render() {
-    const { droplets, loading, error, showDroplets } = this.props;
+    const { droplets, loading, error } = this.props;
+    const showDroplets = !loading && !error;
 
     return (
       <Container>
@@ -31,13 +28,17 @@ class Droplets extends Component {
           }}
         >
           <Loading state={loading} />
-          <Error show={error} message="Error loading droplets. Please try again later" />
+          <Error
+            show={error}
+            message="Error loading droplets. Please try again later"
+          />
           {showDroplets && (
-            <View style={{ flex: 1, justifyContent: 'center' }}>
-              {droplets.map(droplet => (
-                <Droplet key={droplet.id} droplet={droplet} />
-              ))}
-            </View>
+            <FlatList
+              data={droplets}
+              renderItem={({ item }) => (
+                <Droplet key={item.id} droplet={item} />
+              )}
+            />
           )}
         </Content>
       </Container>
