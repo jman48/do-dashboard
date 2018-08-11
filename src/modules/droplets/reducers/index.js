@@ -5,8 +5,8 @@ import {
   DROPLETS_LOAD_ALL_SUCCESS,
   DROPLET_LOAD,
   DROPLETS_LOAD_ALL_FAIL,
-  DROPLET_LOAD_FAIL
-} from "../actions";
+  DROPLET_LOAD_FAIL, DROPLETS_REFRESH
+} from '../actions';
 
 const droplets = (state = [], action) => {
   switch (action.type) {
@@ -74,11 +74,23 @@ const dropletLoadFail = (state = false, action) => {
   }
 };
 
+const refreshing = (state = false, action) => {
+  switch (action.type) {
+    case DROPLETS_REFRESH:
+      return true;
+    case DROPLETS_LOAD_ALL_SUCCESS:
+      return false;
+    default:
+      return state;
+  }
+};
+
 export default combineReducers({
   droplets,
   droplet,
   dropletsLoading,
   dropletLoading,
   dropletLoadFail,
-  dropletsLoadFail
+  dropletsLoadFail,
+  refreshing
 });

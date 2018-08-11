@@ -8,8 +8,8 @@ import {
   loadDropletsFail,
   loadDropletFail,
   DROPLETS_LOAD_ALL_FAIL,
-  DROPLET_LOAD_FAIL
-} from "../actions";
+  DROPLET_LOAD_FAIL, DROPLETS_REFRESH
+} from '../actions';
 import navigationService from "../../core/routes/navigationService";
 import { handleError, showError } from "../../core/utils";
 
@@ -61,4 +61,8 @@ export function* watchLoadDropletsFail() {
 
 export function* watchLoadDropletFail() {
   yield takeEvery(DROPLET_LOAD_FAIL, handleLoadDropletFail);
+}
+
+export function* watchRefreshDroplets() {
+  yield takeEvery(DROPLETS_REFRESH, loadDroplets)
 }

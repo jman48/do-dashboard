@@ -1,17 +1,18 @@
 import { connect } from 'react-redux';
 import { isEmpty } from 'ramda';
 import Droplets from '../components';
-import { loadDroplets } from '../actions';
+import { DROPLETS_REFRESH, loadDroplets } from '../actions';
 
-const mapStateToProps = ({ droplets: { droplets, dropletsLoading, dropletsLoadFail } }) => ({
+const mapStateToProps = ({ droplets: { droplets, dropletsLoading, dropletsLoadFail, refreshing } }) => ({
   loading: dropletsLoading,
   droplets,
   error: !isEmpty(dropletsLoadFail),
-  showDroplets: !dropletsLoading && !isEmpty(dropletsLoadFail)
+  refreshing
 });
 
 const mapDispatchToProps = dispatch => ({
-  load: () => dispatch(loadDroplets())
+  load: () => dispatch(loadDroplets()),
+  refresh: () => dispatch({ type: DROPLETS_REFRESH })
 });
 
 export default connect(

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { FlatList } from "react-native";
+import { FlatList, RefreshControl } from "react-native";
 import Droplet from "../containers/dropletSummary";
 import { Container, Content, View, Text } from "native-base";
 import Loading from "../../core/components/loading";
@@ -17,31 +17,30 @@ class Droplets extends Component {
   }
 
   render() {
-    const { droplets, loading, error } = this.props;
+    const { droplets, loading, error, refreshing, refresh } = this.props;
+    console.log("Refreshing is: ", refreshing);
     const showDroplets = !loading && !error;
 
     return (
-      <Container>
-        <Content
-          style={{
-            margin: 5
-          }}
-        >
-          <Loading state={loading} />
-          <Error
-            show={error}
-            message="Error loading droplets. Please try again later"
+      <View>
+        <Loading state={loading} />
+        <Error
+          show={error}
+          message="Error loading droplets. Please try again later"
+        />
+        {showDroplets && (
+          <FlatList
+            data={droplets}
+            renderItem={({ item }) => <Droplet key={item.id} droplet={item} />}
+            refreshControl={
+              <RefreshControl
+                refreshing={refreshing}
+                onRefresh={() => refresh()}
+              />
+            }
           />
-          {showDroplets && (
-            <FlatList
-              data={droplets}
-              renderItem={({ item }) => (
-                <Droplet key={item.id} droplet={item} />
-              )}
-            />
-          )}
-        </Content>
-      </Container>
+        )}
+      </View>
     );
   }
 }
