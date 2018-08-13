@@ -34,7 +34,7 @@ class Droplet extends Component {
       <Content>
         <Loading state={loading} />
         <Error show={error} message="Failed to load droplet. Please try again later" />
-        {showDroplet (
+        {showDroplet && (
           <View>
             <List>
               <Text style={title}>{name}</Text>
@@ -61,7 +61,6 @@ class Droplet extends Component {
 
               <ListItem>
                 <Text>Region</Text>
-                <Text>{region.slug.toUpperCase()}</Text>
               </ListItem>
 
               <ListItem>
