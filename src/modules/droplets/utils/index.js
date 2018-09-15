@@ -1,5 +1,7 @@
 import { pathOr } from "ramda";
-import { ActionSheet } from "native-base";
+import { Alert } from "react-native";
+
+export const CANCELLED = 'CANCELLED';
 
 export function getDropletInfo(droplet) {
   return {
@@ -16,26 +18,11 @@ export function getDropletInfo(droplet) {
   };
 }
 
-export function showActionSheet() {
-  const DROPLET_ACTIONS = [
-    "Power Off",
-    "Power On",
-    "Reboot",
-    "Snapshot",
-    "Cancel"
-  ];
-
-  ActionSheet.show(
-    {
-      options: DROPLET_ACTIONS,
-      cancelButtonIndex: 4,
-      destructiveButtonIndex: 0,
-      title: "Manage Droplet"
-    },
-    buttonIndex => console.log("Button clicked at: ", buttonIndex)
-  );
-}
-
-export function getDropletActions() {
-
+export function confirm(action, message) {
+  return new Promise((resolve, reject) => {
+    Alert.alert(`Confirm ${action}`, message, [
+      { text: "Ok", onPress: resolve },
+      { text: "Cancel", onPress: () => reject(CANCELLED) }
+    ]);
+  });
 }

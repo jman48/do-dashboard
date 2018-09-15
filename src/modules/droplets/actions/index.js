@@ -42,3 +42,8 @@ export const loadDropletFail = message => ({
   type: DROPLET_LOAD_FAIL,
   payload: message
 });
+
+export const rebootDroplet = dropletId => ({
+  type: DROPLET_REBOOT,
+  payload: dropletId
+});

@@ -16,7 +16,7 @@ export async function getDroplet(dropletID) {
 }
 
 function makeActionRequest(dropletId, type) {
-  return {
+  return API({
     method: 'post',
     url: `${DROPLET_URL_BASE}/${dropletId}/actions`,
     data: {
@@ -25,8 +25,14 @@ function makeActionRequest(dropletId, type) {
     headers: {
       "Content-Type": "application/json"
     }
-  }
+  });
 }
+
+export function reboot(dropletId) {
+  return makeActionRequest(dropletId, 'reboot');
+}
+
+
 
 // Restart
 // Resize

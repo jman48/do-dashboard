@@ -1,13 +1,16 @@
 import { connect } from 'react-redux';
+import { rebootDroplet } from '../actions';
 import Settings from '../components/settings';
 
-
+const mapStateToProps = ({ droplets: { droplet }}) => ({
+  dropletId: droplet.id
+});
 
 const mapDispatchToProps = dispatch => ({
-  load: () => dispatch(loadDroplets()),
+  reboot: dropletId => dispatch(rebootDroplet(dropletId))
 });
 
 export default connect(
-  null,
-  null
+  mapStateToProps,
+  mapDispatchToProps
 )(Settings);

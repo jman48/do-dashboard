@@ -66,3 +66,4 @@ export function* watchLoadDropletFail() {
 export function* watchRefreshDroplets() {
   yield takeEvery(DROPLETS_REFRESH, loadDroplets)
 }
+
