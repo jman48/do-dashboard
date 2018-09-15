@@ -15,6 +15,19 @@ export async function getDroplet(dropletID) {
   );
 }
 
+function makeActionRequest(dropletId, type) {
+  return {
+    method: 'post',
+    url: `${DROPLET_URL_BASE}/${dropletId}/actions`,
+    data: {
+      type
+    },
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }
+}
+
 // Restart
 // Resize
 // Backups - Enable/ Disable

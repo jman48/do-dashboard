@@ -12,6 +12,8 @@ export const DROPLET_LOAD = `${DROPLET}_LOAD`;
 export const DROPLET_LOAD_SUCCESS = `${DROPLET_LOAD}_SUCCESS`;
 export const DROPLET_LOAD_FAIL = `${DROPLET_LOAD}_FAIL`;
 
+export const DROPLET_REBOOT = `${DROPLET}_REBOOT`;
+
 export const loadDroplets = () => ({
   type: DROPLETS_LOAD_ALL
 });

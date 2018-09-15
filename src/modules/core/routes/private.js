@@ -4,19 +4,17 @@ import {
   createDrawerNavigator
 } from 'react-navigation';
 import NavigationService from './navigationService';
-import Droplet from '../../droplets/containers/droplet';
 import Droplets from '../../droplets/containers';
 import HeaderDrawerIcon from '../../drawer/components/headerDrawerIcon';
 import Drawer from '../../drawer/containers';
+import Droplet from '../../droplets/routes';
 
 const PrivateStack = createStackNavigator(
   {
     Droplets: {
       screen: Droplets
     },
-    Droplet: {
-      screen: Droplet
-    }
+    Droplet: Droplet
   },
   {
     navigationOptions: {

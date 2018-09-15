@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Content, Text, View, List, Badge } from 'native-base';
+import { Content, Text, View, List, Badge, Footer, FooterTab, Button } from 'native-base';
 import Status from './status';
 import ListItem from './listItem';
 import { getDropletInfo } from '../utils';
@@ -9,7 +9,7 @@ import Error from '../../core/components/error';
 
 class Droplet extends Component {
   static navigationOptions = {
-    title: 'Droplet'
+    title: 'Info'
   };
 
   componentDidMount() {
