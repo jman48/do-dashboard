@@ -6,6 +6,7 @@ import { getDropletInfo } from '../utils';
 import Loading from '../../core/components/loading';
 import analytics from '../../core/utils/analytics';
 import Error from '../../core/components/error';
+import Title from '../../core/components/title';
 
 class Droplet extends Component {
   static navigationOptions = {
@@ -28,7 +29,6 @@ class Droplet extends Component {
       tags,
       image: { distribution }
     } = getDropletInfo(droplet);
-    const { title } = styles;
 
     return (
       <Content>
@@ -37,7 +37,7 @@ class Droplet extends Component {
         {showDroplet && (
           <View>
             <List>
-              <Text style={title}>{name}</Text>
+              <Title>{name}</Title>
 
               <ListItem>
                 <Text>Status</Text>
@@ -101,12 +101,6 @@ class Droplet extends Component {
 }
 
 const styles = {
-  title: {
-    color: '#1683FB',
-    fontSize: 24,
-    textAlign: 'center',
-    margin: 15
-  },
   status: {
     position: 'absolute',
     top: 0,

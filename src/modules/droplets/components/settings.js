@@ -1,8 +1,10 @@
 import React from "react";
 import { View } from "native-base";
 import Setting from "../components/setting";
+import Title from '../../core/components/title';
 
 const Settings = ({
+  name,
   dropletId,
   reboot,
   powerOn,
@@ -12,6 +14,7 @@ const Settings = ({
   poweringOn
 }) => (
   <View>
+    <Title>{name}</Title>
     <Setting
       name="Reboot"
       disabled={rebooting}

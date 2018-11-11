@@ -1,4 +1,5 @@
 import { connect } from "react-redux";
+import { pathOr } from 'ramda';
 import {
   DROPLET_POWER_OFF,
   DROPLET_POWER_ON,
@@ -12,7 +13,8 @@ const mapStateToProps = ({ droplets: { droplet, action } }) => ({
   dropletId: droplet.id,
   rebooting: action === DROPLET_REBOOT,
   poweringOff: action === DROPLET_POWER_OFF,
-  poweringOn: action === DROPLET_POWER_ON
+  poweringOn: action === DROPLET_POWER_ON,
+  name: pathOr('Droplet actions', ['name'], droplet)
 });
 
 const mapDispatchToProps = dispatch => ({
