@@ -1,9 +1,9 @@
 import React from 'react';
 import { View, Text, Button } from 'native-base';
 
-const Setting = ({ name, onActivate }) => (
+const Setting = ({ name, onActivate, disabled }) => (
   <View>
-    <Button block style={styles.wrapper} onPress={() => onActivate()}>
+    <Button disabled={disabled} block style={styles.wrapper} onPress={() => onActivate()}>
       <Text>{name}</Text>
     </Button>
   </View>

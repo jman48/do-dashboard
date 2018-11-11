@@ -32,6 +32,14 @@ export function reboot(dropletId) {
   return makeActionRequest(dropletId, 'reboot');
 }
 
+export function powerOff(dropletId) {
+  return makeActionRequest(dropletId, 'power_off');
+}
+
+export function powerOn(dropletId) {
+  return makeActionRequest(dropletId, 'power_on');
+}
+
 
 
 // Restart

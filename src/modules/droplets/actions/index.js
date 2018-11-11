@@ -12,7 +12,6 @@ export const DROPLET_LOAD = `${DROPLET}_LOAD`;
 export const DROPLET_LOAD_SUCCESS = `${DROPLET_LOAD}_SUCCESS`;
 export const DROPLET_LOAD_FAIL = `${DROPLET_LOAD}_FAIL`;
 
-export const DROPLET_REBOOT = `${DROPLET}_REBOOT`;
 
 export const loadDroplets = () => ({
   type: DROPLETS_LOAD_ALL
@@ -41,9 +40,4 @@ export const loadDropletsFail = message => ({
 export const loadDropletFail = message => ({
   type: DROPLET_LOAD_FAIL,
   payload: message
-});
-
-export const rebootDroplet = dropletId => ({
-  type: DROPLET_REBOOT,
-  payload: dropletId
 });

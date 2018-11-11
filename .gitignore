@@ -21,6 +21,8 @@ DerivedData
 *.ipa
 *.xcuserstate
 project.xcworkspace
+*.p12
+*.cer
 
 # Android/IntelliJ
 #
@@ -59,5 +61,5 @@ buck-out/
 #
 .expo/
 /ios/Pods/
-# google-services.json
-# GoogleService-Info.plist
+google-services.json
+GoogleService-Info.plist

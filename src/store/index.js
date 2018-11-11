@@ -18,12 +18,10 @@ export default () => {
   const store = createStore(
     persistedReducer,
     compose(
-      applyMiddleware(sagaMiddleware),
-      window.__REDUX_DEVTOOLS_EXTENSION__ &&
-        window.__REDUX_DEVTOOLS_EXTENSION__()
+      applyMiddleware(sagaMiddleware)
     )
   );
   const persistor = persistStore(store, null);
-  sagaMiddleware.run(sagasToRun);q
+  sagaMiddleware.run(sagasToRun);
   return { store, persistor };
 };
