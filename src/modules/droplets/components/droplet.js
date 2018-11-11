@@ -1,20 +1,29 @@
-import React, { Component } from 'react';
-import { Content, Text, View, List, Badge, Footer, FooterTab, Button } from 'native-base';
-import Status from './status';
-import ListItem from './listItem';
-import { getDropletInfo } from '../utils';
-import Loading from '../../core/components/loading';
-import analytics from '../../core/utils/analytics';
-import Error from '../../core/components/error';
-import Title from '../../core/components/title';
+import React, { Component } from "react";
+import {
+  Content,
+  Text,
+  View,
+  List,
+  Badge,
+  Footer,
+  FooterTab,
+  Button
+} from "native-base";
+import Status from "./status";
+import ListItem from "./listItem";
+import { getDropletInfo } from "../utils";
+import Loading from "../../core/components/loading";
+import analytics from "../../core/utils/analytics";
+import Error from "../../core/components/error";
+import Title from "../../core/components/title";
 
 class Droplet extends Component {
   static navigationOptions = {
-    title: 'Info'
+    title: "Info"
   };
 
   componentDidMount() {
-    analytics.setCurrentScreen('droplet');
+    analytics.setCurrentScreen("droplet");
   }
 
   render() {
@@ -33,7 +42,10 @@ class Droplet extends Component {
     return (
       <Content>
         <Loading state={loading} />
-        <Error show={error} message="Failed to load droplet. Please try again later" />
+        <Error
+          show={error}
+          message="Failed to load droplet. Please try again later"
+        />
         {showDroplet && (
           <View>
             <List>
@@ -41,7 +53,14 @@ class Droplet extends Component {
 
               <ListItem>
                 <Text>Status</Text>
-                <Status status={status} />
+                <View style={{ flexWrap: "nowrap" }}>
+                  <Text>
+                    {status}
+                    <View style={{ paddingLeft: 5}}>
+                      <Status status={status} />
+                    </View>
+                  </Text>
+                </View>
               </ListItem>
 
               <ListItem>
@@ -72,16 +91,16 @@ class Droplet extends Component {
                 <Text>Tags</Text>
                 <View
                   style={{
-                    flexDirection: 'row',
-                    alignItems: 'flex-end',
-                    flexWrap: 'wrap'
+                    flexDirection: "row",
+                    alignItems: "flex-end",
+                    flexWrap: "wrap"
                   }}
                 >
                   {tags.map(tag => (
                     <Badge
                       style={{
-                        backgroundColor: 'grey',
-                        flexDirection: 'column',
+                        backgroundColor: "grey",
+                        flexDirection: "column",
                         marginLeft: 2,
                         marginRight: 2
                       }}
@@ -102,7 +121,7 @@ class Droplet extends Component {
 
 const styles = {
   status: {
-    position: 'absolute',
+    position: "absolute",
     top: 0,
     left: 0
   }
