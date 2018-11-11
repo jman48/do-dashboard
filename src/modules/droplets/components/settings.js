@@ -1,7 +1,7 @@
 import React from "react";
-import { View } from "native-base";
+import { Content } from "native-base";
 import Setting from "../components/setting";
-import Title from '../../core/components/title';
+import Title from "../../core/components/title";
 
 const Settings = ({
   name,
@@ -13,7 +13,7 @@ const Settings = ({
   poweringOff,
   poweringOn
 }) => (
-  <View>
+  <Content style={{ backgroundColor: "white" }}>
     <Title>{name}</Title>
     <Setting
       name="Reboot"
@@ -30,7 +30,7 @@ const Settings = ({
       disabled={poweringOn}
       onActivate={() => powerOff(dropletId)}
     />
-  </View>
+  </Content>
 );
 
 export default Settings;

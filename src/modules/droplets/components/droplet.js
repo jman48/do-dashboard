@@ -40,7 +40,7 @@ class Droplet extends Component {
     } = getDropletInfo(droplet);
 
     return (
-      <Content>
+      <Content style={{ backgroundColor: "white" }}>
         <Loading state={loading} />
         <Error
           show={error}
@@ -56,7 +56,7 @@ class Droplet extends Component {
                 <View style={{ flexWrap: "nowrap" }}>
                   <Text>
                     {status}
-                    <View style={{ paddingLeft: 5}}>
+                    <View style={{ paddingLeft: 5 }}>
                       <Status status={status} />
                     </View>
                   </Text>
@@ -92,21 +92,18 @@ class Droplet extends Component {
                 <View
                   style={{
                     flexDirection: "row",
-                    alignItems: "flex-end",
                     flexWrap: "wrap"
                   }}
                 >
                   {tags.map(tag => (
                     <Badge
                       style={{
-                        backgroundColor: "grey",
-                        flexDirection: "column",
-                        marginLeft: 2,
-                        marginRight: 2
+                        backgroundColor: "#F1F1F1",
+                        margin: 2
                       }}
                       key={tag}
                     >
-                      <Text>{tag}</Text>
+                      <Text style={{ color: "#676767" }}>{tag}</Text>
                     </Badge>
                   ))}
                 </View>
