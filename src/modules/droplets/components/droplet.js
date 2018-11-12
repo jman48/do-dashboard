@@ -40,14 +40,16 @@ class Droplet extends Component {
     } = getDropletInfo(droplet);
 
     return (
-      <Content style={{ backgroundColor: "white"}}>
+      <Content
+        style={{ backgroundColor: "white", paddingLeft: 5, paddingRight: 5 }}
+      >
         <Loading state={loading} />
         <Error
           show={error}
           message="Failed to load droplet. Please try again later"
         />
         {showDroplet && (
-          <View style={{ padding: 5 }}>
+          <View>
             <List>
               <Title>{name}</Title>
 
