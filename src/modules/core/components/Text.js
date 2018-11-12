@@ -6,7 +6,8 @@ const LightText = ({ children }) => (
 );
 
 const styles = {
-  color: '#676767'
+  color: '#676767',
+  fontSize: 16
 };
 
 export default LightText;
