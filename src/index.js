@@ -8,6 +8,8 @@ import Main from "./modules/core/routes/index";
 import NavigationService from "./modules/core/routes/navigationService";
 import Loading from "./modules/core/components/loading";
 import Modal from "./modules/modal/containers";
+import BannerAd from './modules/core/components/BannerAd';
+import './modules/core/utils/ad.js';
 
 const { store, persistor } = initStore();
 
@@ -16,6 +18,7 @@ export default class App extends React.Component {
     super();
     const perf = firebase.perf();
     perf.setPerformanceCollectionEnabled(true);
+
   }
 
   render() {
@@ -28,8 +31,8 @@ export default class App extends React.Component {
                 NavigationService.setTopLevelNavigator(navigationRef);
               }}
             />
-
             <Modal />
+            <BannerAd />
           </PersistGate>
         </Provider>
       </Root>

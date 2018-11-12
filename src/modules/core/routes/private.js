@@ -28,7 +28,8 @@ const PrivateStack = createStackNavigator(
       },
       headerRight: (
         <HeaderDrawerIcon onPress={() => NavigationService.toggleDrawer()} />
-      )
+      ),
+      headerForceInset: { bottom: 'never' }
     }
   }
 );
