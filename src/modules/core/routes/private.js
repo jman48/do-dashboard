@@ -19,11 +19,12 @@ const PrivateStack = createStackNavigator(
   {
     navigationOptions: {
       headerStyle: {
-        backgroundColor: "#1683FB"
+        backgroundColor: "#1683FB",
+        paddingBottom: 10
       },
       headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: "400",
+        fontWeight: "300",
         fontSize: 22
       },
       headerRight: (
