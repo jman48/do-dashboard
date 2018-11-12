@@ -4,10 +4,7 @@ import {
   Text,
   View,
   List,
-  Badge,
-  Footer,
-  FooterTab,
-  Button
+  Badge
 } from "native-base";
 import Status from "./status";
 import ListItem from "./listItem";
@@ -16,6 +13,7 @@ import Loading from "../../core/components/loading";
 import analytics from "../../core/utils/analytics";
 import Error from "../../core/components/error";
 import Title from "../../core/components/title";
+import LightText from '../../core/components/Text';
 
 class Droplet extends Component {
   static navigationOptions = {
@@ -50,47 +48,48 @@ class Droplet extends Component {
         />
         {showDroplet && (
           <View>
+          <View>
+            <Title>{name}</Title>
+          </View>
             <List>
-              <Title>{name}</Title>
-
               <ListItem>
-                <Text>Status</Text>
+                <LightText>Status</LightText>
                 <View style={{ flexWrap: "nowrap" }}>
-                  <Text>
+                  <LightText>
                     {status}
                     <View style={{ paddingLeft: 5 }}>
                       <Status status={status} />
                     </View>
-                  </Text>
+                  </LightText>
                 </View>
               </ListItem>
 
               <ListItem>
-                <Text>CPUs</Text>
-                <Text>{vcpus}</Text>
+                <LightText>CPUs</LightText>
+                <LightText>{vcpus}</LightText>
               </ListItem>
 
               <ListItem>
-                <Text>Memory</Text>
-                <Text>{memory / 1024} GB</Text>
+                <LightText>Memory</LightText>
+                <LightText>{memory / 1024} GB</LightText>
               </ListItem>
 
               <ListItem>
-                <Text>Disk</Text>
-                <Text>{disk} GB Disk</Text>
+                <LightText>Disk</LightText>
+                <LightText>{disk} GB Disk</LightText>
               </ListItem>
 
               <ListItem>
-                <Text>Region</Text>
+                <LightText >Region</LightText>
               </ListItem>
 
               <ListItem>
-                <Text>OS</Text>
-                <Text>{distribution}</Text>
+                <LightText>OS</LightText>
+                <LightText>{distribution}</LightText>
               </ListItem>
 
               <ListItem>
-                <Text>Tags</Text>
+                <LightText>Tags</LightText>
                 <View
                   style={{
                     flexDirection: "row",
@@ -105,7 +104,7 @@ class Droplet extends Component {
                       }}
                       key={tag}
                     >
-                      <Text style={{ color: "#676767" }}>{tag}</Text>
+                      <Text style={[styles.text, { color: "#676767" }]}>{tag}</Text>
                     </Badge>
                   ))}
                 </View>

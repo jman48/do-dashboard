@@ -7,8 +7,10 @@ const styles = {
   title: {
     color: "#1683FB",
     fontSize: 24,
+    fontWeight: '300',
     textAlign: "center",
-    margin: 15
+    marginTop: 15,
+    marginBottom: 30
   }
 };
 
