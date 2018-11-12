@@ -19,17 +19,17 @@ const PrivateStack = createStackNavigator(
   {
     navigationOptions: {
       headerStyle: {
-        backgroundColor: '#1683FB'
+        backgroundColor: "#1683FB"
       },
-      headerTintColor: '#fff',
+      headerTintColor: "#fff",
       headerTitleStyle: {
-        fontWeight: '400',
+        fontWeight: "400",
         fontSize: 22
       },
       headerRight: (
         <HeaderDrawerIcon onPress={() => NavigationService.toggleDrawer()} />
       ),
-      headerForceInset: { bottom: 'never' }
+      headerForceInset: { bottom: "never" }
     }
   }
 );
