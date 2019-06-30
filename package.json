@@ -42,6 +42,7 @@
     "react-gravatar": "^2.6.3",
     "react-native": "^0.55.3",
     "react-native-firebase": "^4.2.0",
+    "react-native-fix-xcode-10": "rhdeck/react-native-fix-xcode-10",
     "react-native-material-initials": "^0.0.12",
     "react-native-sentry": "^0.38.3",
     "react-native-vector-icons": "^4.6.0",
