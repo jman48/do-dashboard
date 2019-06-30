@@ -1,9 +1,7 @@
 import { Alert } from "react-native";
-import { Sentry } from 'react-native-sentry';
 
 export function handleError(error) {
-  Sentry.captureException(error);
-  console.log('ERROR: ', error);
+  console.error(error);
 }
 
 export function showError(title, message) {

@@ -7,9 +7,10 @@ const request = new AdRequest();
 
 const BannerAd = () => (
   <Banner
-    unitId={'ca-app-pub-1196600699219140/2972943317'}
-    size={"SMART_BANNER"}
+    unitId="ca-app-pub-1196600699219140/2972943317"
+    size="SMART_BANNER"
     request={request.build()}
+    onAdFailedToLoad={error => console.error(error)}
   />
 );
 
